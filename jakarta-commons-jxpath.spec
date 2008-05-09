@@ -57,7 +57,7 @@ BuildRequires:  jakarta-commons-collections >= 0:2.1.1
 Requires:       xml-commons-apis
 Requires:       xerces-j2
 Requires:       servletapi5
-Requires:		jsp
+Requires:	jsp
 Requires:       jdom >= 0:1.0
 Requires:       jakarta-commons-beanutils
 Requires:       jakarta-commons-logging
@@ -91,7 +91,7 @@ Javadoc for %{name}
 #echo commons-logging.jar = $(find-jar commons-logging) >> build.properties 
 
 %build
-export OPT_JAR_LIST="ant/ant-junit junit"
+export OPT_JAR_LIST="ant/ant-junit junit ant-launcher"
 export CLASSPATH=$(build-classpath \
 xerces-j2 \
 servletapi5 \
@@ -100,7 +100,8 @@ xml-commons-apis \
 jdom \
 commons-beanutils \
 commons-logging \
-commons-collections)
+commons-collections \
+ant-launcher)
 CLASSPATH=$CLASSPATH:target/classes:target/test-classes
 %ant -Dbuild.sysclasspath=only -Dant.build.javac.source=1.4 -Dant.build.javac.target=1.4 test jar javadoc
 
