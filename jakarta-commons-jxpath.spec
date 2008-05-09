@@ -37,7 +37,7 @@ Release:        %mkrel 2.0.1
 Epoch:          0
 Summary:        Simple XPath interpreter
 
-Group:          Development/Libraries/Java
+Group:          Development/Java
 License:        Apache Software License
 URL:            http://jakarta.apache.org/commons/jxpath/
 Source0:        commons-jxpath-1.2-src.zip
