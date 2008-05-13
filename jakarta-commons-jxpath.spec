@@ -68,15 +68,12 @@ Defines a simple interpreter of an expression language called XPath.
 JXPath applies  XPath  expressions to graphs of objects of all kinds: 
 JavaBeans, Maps, Servlet contexts, DOM etc, including mixtures thereof.
 
-#TODO reenable javadoc after making it produce some output
-%if 0
 %package        javadoc
 Summary:        Javadoc for %{name}
 Group:          Development/Java
 
 %description    javadoc
 Javadoc for %{name}
-%endif
 
 %prep
 %setup -q -n %{base_name}-%{version}
@@ -103,7 +100,7 @@ commons-logging \
 commons-collections \
 ant-launcher)
 CLASSPATH=$CLASSPATH:target/classes:target/test-classes
-%ant -Dbuild.sysclasspath=only -Dant.build.javac.source=1.4 -Dant.build.javac.target=1.4 test jar javadoc
+%ant -Dbuild.sysclasspath=first -Dant.build.javac.source=1.4 -Dant.build.javac.target=1.4 test jar javadoc
 
 
 %install
@@ -116,10 +113,8 @@ ln -s %{name}-%{version}.jar \
 ln -s %{base_name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{base_name}.jar
 install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
-%if 0
 cp -pr dist/docs/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} 
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -129,9 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE.txt
 %{_javadir}/*.jar
 
-%if 0
 %files javadoc
 %defattr(-,root,root,-)
 %doc %{_javadocdir}/%{name}-%{version}
 %doc %{_javadocdir}/%{name}
-%endif
