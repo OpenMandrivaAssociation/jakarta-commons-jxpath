@@ -45,6 +45,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildArch:      noarch
 BuildRequires:  jpackage-utils >= 0:1.5
+BuildRequires:  java-rpmbuild
 BuildRequires:  ant >= 0:1.6, ant-junit >= 0:1.6, junit
 BuildRequires:  xml-commons-apis
 BuildRequires:  xerces-j2
