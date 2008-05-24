@@ -33,7 +33,7 @@
 
 Name:           jakarta-%{base_name}
 Version:        1.2
-Release:        %mkrel 2.0.1
+Release:        %mkrel 2.0.2
 Epoch:          0
 Summary:        Simple XPath interpreter
 
@@ -41,6 +41,7 @@ Group:          Development/Java
 License:        Apache Software License
 URL:            http://jakarta.apache.org/commons/jxpath/
 Source0:        commons-jxpath-1.2-src.zip
+Source1:        commons-jxpath-1.2.pom
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildArch:      noarch
@@ -113,17 +114,32 @@ ln -s %{name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{base_name}-%{version}.jar
 ln -s %{base_name}-%{version}.jar \
   $RPM_BUILD_ROOT%{_javadir}/%{base_name}.jar
+  %add_to_maven_depmap %{base_name} %{base_name} %{version} JPP/%{base_name} %{base_name}
 install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -pr dist/docs/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} 
 
+# poms
+install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/maven2/poms
+
+install -pm 644 %{SOURCE1} \
+    $RPM_BUILD_ROOT%{_datadir}/maven2/poms/JPP.%{base_name}.pom
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_maven_depmap
+
+%postun
+%update_maven_depmap
 
 %files
 %defattr(-,root,root,-)
 %doc LICENSE.txt
 %{_javadir}/*.jar
+%{_datadir}/maven2/poms/*
+%{_mavendepmapfragdir}
 
 %files javadoc
 %defattr(-,root,root,-)
