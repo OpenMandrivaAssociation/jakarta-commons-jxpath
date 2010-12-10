@@ -33,7 +33,7 @@
 
 Name:           jakarta-%{base_name}
 Version:        1.2
-Release:        %mkrel 3.0.3
+Release:        %mkrel 3.0.4
 Epoch:          0
 Summary:        Simple XPath interpreter
 
