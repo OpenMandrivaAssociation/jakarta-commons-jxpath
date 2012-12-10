@@ -145,3 +145,31 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc %{_javadocdir}/%{name}-%{version}
 %doc %{_javadocdir}/%{name}
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0:1.2-3.0.4mdv2011.0
++ Revision: 619760
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 0:1.2-3.0.3mdv2010.0
++ Revision: 429588
+- rebuild
+
+* Thu Aug 07 2008 Thierry Vignaud <tv@mandriva.org> 0:1.2-3.0.2mdv2009.0
++ Revision: 267206
+- rebuild early 2009.0 package (before pixel changes)
+
+* Sat May 24 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:1.2-2.0.2mdv2009.0
++ Revision: 210807
+- add maven pom
+
+* Tue May 13 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:1.2-2.0.1mdv2009.0
++ Revision: 206660
+- add java-rpmbuild BR
+- reenable javadoc
+- add ant-launcher to the classpath
+- fix group
+- import jakarta-commons-jxpath
+
+
