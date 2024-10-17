@@ -39,7 +39,7 @@ Summary:        Simple XPath interpreter
 
 Group:          Development/Java
 License:        Apache Software License
-URL:            http://jakarta.apache.org/commons/jxpath/
+URL:            https://jakarta.apache.org/commons/jxpath/
 Source0:        commons-jxpath-1.2-src.zip
 Source1:        commons-jxpath-1.2.pom
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
